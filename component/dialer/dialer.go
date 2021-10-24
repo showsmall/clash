@@ -36,7 +36,7 @@ func DialContext(ctx context.Context, network, address string, options ...Option
 }
 
 func ListenPacket(ctx context.Context, network, address string, options ...Option) (net.PacketConn, error) {
-	cfg := &config{}
+	cfg := &option{}
 
 	if !cfg.skipDefault {
 		for _, o := range DefaultOptions {
@@ -64,7 +64,7 @@ func ListenPacket(ctx context.Context, network, address string, options ...Optio
 }
 
 func dialContext(ctx context.Context, network string, destination net.IP, port string, options []Option) (net.Conn, error) {
-	opt := &config{}
+	opt := &option{}
 
 	if !opt.skipDefault {
 		for _, o := range DefaultOptions {
